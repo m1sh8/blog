@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Vxod
+{% endblock %}
+{% block content %}
+<div class="flex">
+    <form action="{% url 'login_url' %}" method="POST" class="login">
+        {% if message != null %}
+        <div class="alert alert-danger">
+            {{message}}
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        <p>
+            <input type="text" name="username" class="form-control" placeholder="Vash nickname">
+        </p>
+        <p>
+            <input type="password" name="password" class="form-control" placeholder="Vash parol">
+        </p>
+        <p>
+            <button class="btn btn-outline-success">Vxod</button>
+        </p>
+    </form>
+</div>
+{% endblock %}
